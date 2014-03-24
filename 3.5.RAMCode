@@ -1,0 +1,29 @@
+         load  =0      #0
+         store 1       #liczba jedynek
+         store 2       #liczba dwójek
+loop:    read  0       #Ax - wczytana liczba
+         jzero sprawdz #Ax-2=0? next : ...
+         sub   =1
+         jgtz  add_two
+         jzero add_one
+         jump  loop
+add_one: load  1
+         add   =1
+         store 1
+         jump  loop
+add_two: load  2
+         add   =1
+         store 2
+         jump  loop
+sprawdz: load  2
+         mult  =3
+         store 4
+         load  1
+         sub   4
+         jgtz  tak
+nie:     load  =0
+         store 1
+         jump  print
+tak:     load  =1
+         store 1
+print:   write 1

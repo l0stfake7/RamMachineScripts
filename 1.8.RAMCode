@@ -1,0 +1,12 @@
+       read  1     #a - sprawdzana liczba
+       load  1
+       div   =3    #dzielę przez 3
+       mult  =3    #mnożę razy 3
+       store 2     #zapisuję
+       load  1     #wczytuję
+       sub   2     #odejmuję wartość rejestru o adresie 2
+       jzero true  #jeśli jest zerem to jest podzielna przez 3
+       jump  false #jeśli nie to nie jest podzielna przez 3
+false: write =0
+       halt  
+true:  write =1

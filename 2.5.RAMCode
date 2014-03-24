@@ -1,0 +1,5 @@
+     load  =-1
+     add   =1
+     jzero end
+     write =1
+end: write =0

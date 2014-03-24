@@ -1,0 +1,11 @@
+    read  1
+    read  2
+    load  2
+    sub   1
+    jgtz  ab
+ba: write 2
+    write 1
+    halt  
+ab: write 1
+    write 2
+    halt  

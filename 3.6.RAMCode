@@ -1,0 +1,31 @@
+                 read  1               #n
+                 load  =0              #0
+                 store 2               #dodatnie
+                 load  =1              #1
+                 store 3               #parzyste
+                 store 4               #i
+wczytaj:         read  5               #Ax
+                 load  5               #Ax
+                 jgtz  zalicz_dodatnia #Ax>0? dodatnia : czyparzysta
+                 jump  czyparzysta
+zalicz_dodatnia: add   2               #Ax+dodatnie
+                 store 2               #dodatnie
+czyparzysta:     load  5               #Ax
+                 div   =2              #/2
+                 mult  =2              #*2
+                 store 6               #W
+                 load  5               #Ax
+                 sub   6               #-W
+                 jzero zalicz_parzysta #Ax-W=0? zalicz_parzysta : sprawdz
+                 jump  sprawdz
+zalicz_parzysta: load  5               #Ax
+                 mult  3               #parzyste
+                 store 3               #parzyste
+sprawdz:         load  4               #i
+                 add   =1              #+1
+                 store 4               #i
+                 sub   1               #-n
+                 jgtz  wypisz
+                 jump  wczytaj
+wypisz:          write 2               #suma dodatnich
+                 write 3               #iloczyn parzystych

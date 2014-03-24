@@ -1,0 +1,43 @@
+read  1 #a
+read  2 #b
+read  3 #c
+read  4 #d
+read  5 #e
+read  6 #f
+read  7 #x
+load  1
+mult  7
+store 1 #ax
+mult  1
+mult  1
+mult  1
+mult  1
+store 1 #ax^5
+load  2
+mult  7
+store 2 #bx
+mult  2
+mult  2
+mult  2
+store 2 #bx^4
+load  3
+mult  7
+store 3 #cx
+mult  3
+mult  3
+store 3 #cx^3
+load  4
+mult  7
+store 4 #dx
+mult  4
+store 4 #dx^2
+load  5
+mult  7
+store 5 #ex
+load  1
+add   2
+add   3
+add   4
+add   5
+add   6
+write 0

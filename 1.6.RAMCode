@@ -1,0 +1,14 @@
+              read  1            #a - liczba potegowana
+              load  1
+              store 3            #b - aktualny wynik
+              read  2            #c - potęga
+loop:         load  2
+              sub   =1           #dekrementacja
+              store 2
+              jzero print_result #jeśli potęga jest równa 0 to drukuję wynik
+              load  1
+              mult  3
+              store 3
+              jump  loop         #ponownie wykonuję pętelkę
+print_result: load  3
+              write 0            #drukuję wynik

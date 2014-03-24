@@ -1,0 +1,17 @@
+              read  1            #n - tyle pierwszych wyrazów mamy wydrukować
+              read  2            #a - pierwszy wyraz ciągu
+              read  3            #w - aktualna suma dwóch poprzednich wyrazów
+              read  4            #b - drugi wyraz ciągu
+loop:         write 4            #drukujemy kolejno wyrazu ciągu od 1 do 10
+              load  1
+              sub   =1           #dekrementacja
+              store 1            #tyle wyrazów jest jeszcze do wydrukowania
+              jzero print_result #jeśli 0 to wydrukowaliśmy już wszystkie wyrazy
+              load  3            #poprzednia suma zmienia sie na
+              store 2            #pierwszy wyraz ciagu
+              load  4            #drugi wyraz ciagu zmienia sie na
+              store 3            #aktualna sume dwoch poprzednich wyrazow
+              add   2            #dodajemy pierwszy wyraz, ktory przed chwila ustawilismy
+              store 4            #i w ten sposob mamy kolejny wyraz ciagu, gotowy do wydruku w nastepnym cyklu
+              jump  loop         #ponownie wykonuję pętelkę
+print_result: halt               #zatrzymuję wykonywanie programu

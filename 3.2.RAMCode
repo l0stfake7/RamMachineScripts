@@ -1,0 +1,29 @@
+        read  1      #n
+        read  0
+        store 5      #a1
+        store 3      #min
+        store 4      #max
+        load  =2
+        store 2      #i
+petla: 
+        read  5
+        load  5
+        sub   3
+        jgtz  min
+        load  5
+        store 3
+min: 
+        load  4
+        sub   5
+        jgtz  max
+        load  5
+        store 4
+max: 
+        load  2
+        add   =1
+        store 2
+        sub   1
+        jgtz  wypisz
+        jump  petla
+wypisz: write 3
+        write 4

@@ -1,0 +1,36 @@
+       read  1     #n - sprawdzana liczba
+       load  1
+       jzero next  #n=0
+       jgtz  next  #n>0
+       jump  nie   #n<0
+next:  load  1     #n
+       sub   =1    #n-1
+       jzero nie   #n-1=0? nie jest pierwsza
+       load  1     #n
+       sub   =2    #n-2
+       jzero tak   #n-2=0? jest pierwsza
+       load  1     #n
+       div   =2    #w=n/2
+       store 2     #w
+       mult  =2    #w=w*2
+       sub   1     #w=w-n
+       jzero nie   #w=0? nie jest pierwsza
+       load  =3    #3
+       store 3     #3
+loop:  load  2     #w=n/2
+       sub   3     #w=(n/2)-3
+       jgtz  check
+       jump  tak   #jest pierwsza
+check: load  1     #n
+       div   3     #n/3
+       mult  3     #n*3
+       sub   1     #n-3
+       jzero nie   #(n/3)->(n*3)->(n-3)=0? nie jest pierwsza
+       load  3     #3
+       add   =2    #3+2
+       store 3     #3+2
+       jump  loop
+nie:   write =0    #nie jest pierwsza
+       halt  
+tak:   write =1    #jest pierwsza
+       halt  

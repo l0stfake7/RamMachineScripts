@@ -1,0 +1,11 @@
+        read  1
+        read  2
+        load  1
+        div   2
+        mult  2
+        sub   1
+        jzero prawda
+falsz:  write =0
+        jump  koniec
+prawda: write =1
+koniec: halt  

@@ -1,0 +1,18 @@
+              read  2            #Max
+              load  =1           #1
+              store 3            #n
+loop:         load  3            #n
+              sub   =5           #-5
+              jzero print_result #=0?
+              read  1            #Ax
+              load  3            #n
+              add   =1           #+1
+              store 3            #n
+              load  1            #Ax
+              sub   2            #-Max
+              jgtz  higher       #>0?
+              jump  loop
+higher:       load  1            #Ax
+              store 2            #Max=Ax
+              jump  loop
+print_result: write 2            #Max

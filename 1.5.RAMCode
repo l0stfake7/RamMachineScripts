@@ -1,0 +1,12 @@
+       read  1     #a - sprawdzana liczba
+       load  1
+       div   =2    #dzielę przez 2
+       mult  =2    #mnożę razy 2
+       store 2     #zapisuję
+       load  1     #wczytuję
+       sub   2     #odejmuję wartość rejestru o adresie 2
+       jzero true  #jeśli jest zerem to jest parzysta
+       jump  false #jeśli nie to nie jest parzysta
+false: write =0
+       halt  
+true:  write =1

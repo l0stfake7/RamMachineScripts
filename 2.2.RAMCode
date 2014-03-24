@@ -1,0 +1,14 @@
+       read  1     #A1
+       load  1
+       store 3     #An
+       read  2     #n
+loop:  load  2     #n
+       jzero print #n=0?
+       sub   =1    #-1
+       store 2     #n
+       load  3     #An
+       add   =1    #+1
+       store 3     #An
+       jump  loop
+print: write 1     #A1 - najmniejszy wyraz
+       write 3     #An - największy wyraz

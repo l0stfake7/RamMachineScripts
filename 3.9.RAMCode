@@ -1,0 +1,20 @@
+        read  0      #a
+        jzero blad
+        store 1      #a
+        read  0      #b
+        jzero blad
+        store 2      #b
+        load  =0
+        store 3
+licz:   load  2      #b
+        jzero wypisz
+        load  3      #a
+        add   1      #+a
+        store 3      #c
+        load  2      #b
+        sub   =1     #-1
+        store 2      #b
+        jump  licz
+blad:   load  =0
+        store 3
+wypisz: write 3

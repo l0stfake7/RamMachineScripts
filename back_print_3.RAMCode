@@ -1,0 +1,18 @@
+       load  =5    #zapisujemy w rejestrach +5
+       store 1     #zapisuje od którego rejestru zapisuję liczby
+loop:  read  0
+       jzero print #sprawdzam czy wczytana liczba równa 0
+       store ^1    #zapisuje wczytana liczbe od 5 rejestru
+       load  1     #czytam licznik
+       add   =1    #inkrementacja
+       store 1     #zapisuje licznik
+       jump  loop
+print: load  1
+       sub   =5    #odejmuje 5 bo od 5 zapisuje liczby
+       jzero stop  #sprawdzam czy liczba równa 0
+       load  1     #czytam licznik
+       sub   =1    #dekrementacja
+       store 1     #zapisuje licznik
+       write ^1    #drukuję
+       jump  print
+stop:  halt  

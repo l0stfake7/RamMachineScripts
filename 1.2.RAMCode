@@ -1,0 +1,32 @@
+       read  1     #a
+       load  1
+       jzero error #sprawdzam czy a jest równe 0
+       read  2     #b
+       load  2
+       jzero error #sprawdzam czy b jest równe 0
+       read  3     #c
+       load  3
+       jzero error #sprawdzam czy c jest równe 0
+       load  1     #obliczam V
+       mult  2
+       mult  3
+       write 0     #drukuję V
+       load  1     #obliczam Pc
+       mult  2
+       store 5     #a*b
+       load  1
+       mult  3
+       store 6     #a*c
+       load  2
+       mult  3
+       store 7     #b*c
+       load  5
+       add   6
+       store 8     #a*b+a*c
+       load  7
+       add   8     #a*b+a*c+b*c
+       mult  =2    #2(a*b+a*c+b*c)
+       write 0     #drukuję Pc
+       halt  
+error: write =0    #V
+       write =0    #Pc

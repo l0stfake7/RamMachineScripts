@@ -1,0 +1,21 @@
+              read  1            #n - liczba potęgowana
+              load  1
+              jzero error_1      #sprawdzam czy liczba potęgowana jest równa 0
+              store 3            #b - aktualny wynik
+              read  2            #c - potęga
+              load  2
+              jzero error_2      #sprawdzam czy potęga jest równa 0
+loop:         load  2
+              sub   =1           #dekrementacja
+              store 2
+              jzero print_result #jeśli potęga jest równa 0 to drukuję wynik
+              load  1
+              mult  3
+              store 3
+              jump  loop         #ponownie wykonuję pętelkę
+print_result: load  3
+              write 0            #drukuję wynik
+              halt               #kończę działanie programu
+error_1:      write =0           #drukuję 0 w przypadku gdy liczba potęgowana jest równa 0
+              halt               #kończę działanie programu
+error_2:      write =1           #drukuję 1 w przypadku gdy potęga jest równa 0

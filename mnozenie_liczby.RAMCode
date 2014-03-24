@@ -1,0 +1,5 @@
+read  1 #wczytuje liczbe z pierwszej komorki tasmy wejsciowej do rejestru o adresie 1
+read  2 #wczytuje liczbe z nastepnej komorki tasmy wejsciowej do rejestru o adresie 2
+load  1 #pobiera do akumulatora liczbe z rejestru o adresie 1
+mult  2 #mnozy liczbe w akumulatorze z liczba z rejestru o adresie 2
+write 0 #wypisuje w pierwszej komorce tasmy wejsciowej liczbe z akumulatora

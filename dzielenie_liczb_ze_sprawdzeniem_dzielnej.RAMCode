@@ -1,0 +1,9 @@
+        read  1       #a/b
+        read  2
+        load  2
+        jzero koniec
+        load  1
+        div   2
+        write 0
+        halt  
+koniec: write =666666

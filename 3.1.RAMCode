@@ -1,0 +1,16 @@
+       read  1     #n
+       load  =1    #1
+       store 2     #w
+       load  1     #n
+       jzero error #n=0 ? error : loop
+loop:  load  1     #n
+       mult  2     #*w
+       store 2     #w
+       load  1     #n
+       sub   =1    #-1
+       store 1     #n
+       jzero print #n=0 ? print : loop
+       jump  loop
+error: load  =0    #0
+       store 2     #w
+print: write 2     #w

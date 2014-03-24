@@ -1,0 +1,39 @@
+             read  1           #a
+             read  2           #b
+             read  3           #c
+             read  4           #d
+             read  5           #e
+             read  6           #f
+             read  7           #x
+             load  1
+             mult  7
+             store 1           #ax
+             load  2
+             mult  7
+             store 2           #bx
+             load  3
+             mult  7
+             store 3           #cx
+             load  4
+             mult  7
+             store 4           #dx
+             load  5
+             mult  7
+             store 5           #ex
+             jump  potegowanie
+potegowanie: load  10
+             sub   =1
+             store 10
+             load  13          #ile operacji potegowania mamy do wykonania
+             sub   =1
+             store 13
+             jzero koniec
+petla:       load  10          #akt potega
+             sub   =1
+             store 10
+             jzero potegowanie
+             load  11          #akt wynik potegowania
+             mult  12          #poczatkowa liczba potegowana
+             store 11
+             jump  petla
+koniec: 

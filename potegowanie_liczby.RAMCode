@@ -1,0 +1,21 @@
+        read  1      #liczba potegowana      wyrażenie:n^5
+        load  1
+        jzero blad1  #jesli liczba potegowana jest rowna 0 to wynik =0
+        store 3      #aktualny wynik potegowania
+        read  2      #potega, w tym zadaniu wynosi 5
+        load  2
+        jzero blad2  #jesli potega jest rowna 0 to wynik =1
+petla:  load  2
+        sub   =1
+        store 2
+        jzero koniec
+        load  1
+        mult  3
+        store 3
+        jump  petla
+koniec: load  3
+        write 0
+        halt  
+blad1:  write =0
+        halt  
+blad2:  write =1

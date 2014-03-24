@@ -1,0 +1,35 @@
+                read  1              #a - sprawdzana liczba
+                load  =0
+                store 5
+                load  1
+                div   =2             #dzielę przez 2
+                mult  =2             #mnożę razy 2
+                store 2              #zapisuję
+                load  1              #wczytuję
+                sub   2              #odejmuję wartość rejestru o adresie 2
+                jzero parysta        #*jeśli jest zerem to jest parzysta i sprawdzam podzielnosc przez 3 i 11
+                jump  check_div_3_11 #jeśli nie to nie jest parzysta
+parysta:        load  =1
+                store 5
+                jump  check_div_3_11
+check_div_3_11: load  1
+                div   =3
+                mult  =3
+                store 2
+                load  1
+                sub   2
+                jzero true           #*jeśli nie jest podzielna przez 3 to sprawdzam czy jest podzielna przez 11
+                load  1
+                div   =11
+                mult  =11
+                store 2
+                load  1
+                sub   2
+                jzero true
+                load  5
+                jgtz  true
+                jump  false
+                halt  
+true:           write =1
+                halt  
+false:          write =0

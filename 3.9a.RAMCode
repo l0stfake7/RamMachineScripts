@@ -1,0 +1,12 @@
+       read  0
+       jzero blad
+       store 1
+       read  0
+       jzero blad
+       store 2
+       mult  1
+       store 3
+       jump  wynik
+blad:  load  =0
+       store 3
+wynik: write 3

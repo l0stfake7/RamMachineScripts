@@ -1,0 +1,26 @@
+read  1 #a+b+c+d-(a-b-c-d)*a*b+a*b*c
+read  2
+read  3
+read  4
+load  1
+add   2
+add   3
+add   4
+store 5
+load  1
+sub   2
+sub   3
+sub   4
+store 6
+load  1
+mult  2
+store 7
+load  1
+mult  2
+mult  3
+store 8
+load  5
+sub   6
+mult  7
+add   8
+write 0

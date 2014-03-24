@@ -1,0 +1,29 @@
+          load  =0
+          store 1        #ile 1
+          store 2        #ile 2
+          load  =4       #zapelnilismy 3 komorki pamieci
+          store 3        #wiec zapis zczytywanych liczb zaczynamy od 4 komorki
+czytaj:   read  0        #zczytujemy do akumulatora
+          store ^3       #zapisujemy pod adresem komórki zapisanej w 3 komórce
+          load  3        #nastepna liczbe zapisujemy w kolejnej komorce
+          add   =1       #wiec zwiekszamy licznik
+          store 3
+          sub   =1       #zwiekszylem licznik, ale musze dzialac na wczesniejszej
+          load  ^0       #wiec zmniejszam o 1 ale nie zapisuje
+          sub   =1       #wczytujemy liczbe z komorki podanej w akumulatorze i sprawdzamy czy jest to 1 czy 2 czy 0
+          jgtz  dwojka   #jesli liczba-1 > 0 to liczba jest 2
+          jzero jedynka  #jesli liczba-1 = 0 to liczba jest 1
+          load  1        #wczytujemy licznik jedynek
+          sub   2        #porownojemy z licznikiem dwojek
+          jzero tylesamo #jesli a-b=0 to jest tyle samo jedynek co dwojek
+          write =0       #w przeciwnym wypadku wypisz 0 i zakoncz
+          halt  
+jedynka:  load  1        #zwieksz licznik 1 {
+          add   =1
+          store 1        #}
+          jump  czytaj   #czytaj kolejna liczbe
+dwojka:   load  2        #zwieksz licznik 2 {
+          add   =1
+          store 2        #}
+          jump  czytaj   #czytaj kolejna liczbe
+tylesamo: write =1       #wypisz 1 i zakoncz

@@ -1,0 +1,33 @@
+         read  1       #n
+         read  2       #x
+         load  =1      #1
+         store 3       #x^n
+         store 4       #i
+         load  =0      #0
+         store 5       #w
+petla:   load  2       #x
+         mult  3       #*x^n
+         store 3       #x^n
+         load  4       #i
+         add   =1      #+1
+         store 4       #i
+         sub   1       #-n
+         jgtz  dalej   #i>0? dalej : petla
+         jump  petla
+dalej:   load  1       #n
+         add   =1      #+1
+         store 4       #n
+wczytaj: read  6       #a[i]
+         load  6       #a[i]
+         mult  3       #*x^n
+         add   5       #w
+         store 5       #w
+         load  3       #x^n
+         div   2       #/x
+         store 3       #x^n
+         load  4       #n
+         sub   =1      #-1
+         store 4       #n
+         jzero koniec  #n=0? koniec : wczytaj
+         jump  wczytaj
+koniec:  write 5       #w

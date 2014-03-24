@@ -1,0 +1,109 @@
+            read  1          #rok
+            read  2          #miesiac
+            read  3          #dzien
+                             #TABELA ILOSCI DNI DLA MIESIECY
+            load  =0
+            store 4          #STYCZEN
+            load  =31
+            store 5          #LUTY
+            load  =59
+            store 6          #MARZEC
+            load  =90
+            store 7          #KWIECIEN
+            load  =120
+            store 8          #MAJ
+            load  =151
+            store 9          #CZERWIEC
+            load  =181
+            store 10         #LIPIEC
+            load  =212
+            store 11         #SIERPIEN
+            load  =243
+            store 12         #WRZESIEN
+            load  =273
+            store 13         #PAZDZIERNIK
+            load  =304
+            store 14         #LISTOPAD
+            load  =334
+            store 15         #GRUDZIEN
+                             #obliczanie dnia tygodnia dla 1 stycznia dla podanego roku
+            load  1          #(rok-1) % 100 {
+            sub   =1
+            div   =100
+            mult  =100
+            store 16
+            load  1
+            sub   =1
+            sub   16
+            store 16         #} = YY
+            load  1          #(rok-1) - YY {
+            sub   =1
+            sub   16
+            store 17         #} = C
+            load  16         #YY + YY/4 {
+            div   =4
+            add   16
+            store 18         #} = G
+            load  17         #(((C/100) % 4) * 5)+G {
+            div   =100
+            store 19
+            div   =4
+            mult  =4
+            store 20
+            load  19
+            sub   20
+            mult  =5
+            add   18
+            store 19         #}
+            div   =7         #% 7 {
+            mult  =7
+            store 20
+            load  19
+            sub   20
+            store 19         #}
+                             #OBLICZENIE DNIA ROKU
+            load  =3
+            add   2
+            store 21
+            load  ^21
+            add   19
+            sub   =1
+            add   3
+            store 19
+                             #SPRAWDZENIE CZY ROK PRZESTEPNY
+            load  1
+            div   =400
+            mult  =400
+            store 15
+            load  1
+            sub   16
+            jzero przestepny
+            load  1
+            div   =100
+            mult  =100
+            store 16
+            load  1
+            sub   16
+            jzero zwykly
+            load  1
+            div   =4
+            mult  =4
+            store 16
+            load  1
+            sub   16
+            jzero przestepny
+zwykly:     jump  dalej
+przestepny: load  2
+            sub   =2
+            jgtz  dodaj
+            jump  dalej
+dodaj:      load  19
+            add   =1
+            store 19
+dalej:      load  19
+            div   =7
+            mult  =7
+            store 20
+            load  19
+            sub   20
+            write 0

@@ -1,0 +1,14 @@
+         load  =0      #0
+         store 1       #D - dzielnik
+         store 2       #S - średnia
+loop:    read  0       #Ax - wczytana liczba
+         jzero srednia #Ax=0? srednia : ...
+         add   2       #+Ax
+         store 2       #S
+         load  1       #D
+         add   =1      #+1
+         store 1       #D
+         jump  loop
+srednia: load  2       #S
+         div   1       #D
+         write 0
