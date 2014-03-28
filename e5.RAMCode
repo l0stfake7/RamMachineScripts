@@ -1,0 +1,26 @@
+Przyklad4a:              #Liczby pierwsze
+czytaj:     read  1      #m ← WE
+            load  1
+            jzero koniec #m=0?
+            load  =2
+            sub   1
+            jgtz  nie    #m<2?
+            load  =1
+            store 2      #d ← 1
+dod:        load  2
+            add   =1
+            store 2      #d ← d+1
+            load  1
+            div   2
+            mult  2
+            sub   1
+            jzero next   #d | m?
+            jump  dod    #nie dzieli
+next:       load  1
+            sub   2
+            jzero tak    #m=d?
+nie:        write =0
+            jump  czytaj
+tak:        write =1
+            jump  czytaj
+koniec:     halt  

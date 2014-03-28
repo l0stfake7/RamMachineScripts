@@ -1,0 +1,40 @@
+                          read  1                        #1 n
+                          load  =11                      #2 licznik
+                          store 2                        #3 k
+aaa:                      read  ^2
+                          load  2
+                          add   =1
+                          store 2
+                          sub   =11
+                          sub   1
+                          jzero dalej
+                          jump  aaa
+dalej:                    read  3
+                          load  =11
+                          store 2
+kurczeniewiemjaktonazwac: load  3
+                          sub   ^2
+                          jgtz  gogo
+czeker:                   load  2
+                          add   =1
+                          store 2
+                          sub   =11
+                          sub   1
+                          jzero niewiemgdzie
+                          jump  kurczeniewiemjaktonazwac
+gogo:                     write ^2
+                          jump  czeker
+niewiemgdzie:             load  =11
+                          store 2
+kokszewrammaszynie:       load  3
+                          sub   ^2
+                          jgtz  nono
+                          write ^2
+nono:                     load  2
+                          add   =1
+                          store 2
+                          sub   =11
+                          sub   1
+                          jzero finito
+                          jump  kokszewrammaszynie
+finito:                   halt  

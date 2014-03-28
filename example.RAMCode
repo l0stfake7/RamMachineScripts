@@ -1,0 +1,13 @@
+Przyklad1:          #f(n) = 2n^3+3n^2-n
+           read  1  #r1 ← WE
+           load  1  #Acc ← r1     /n
+           mult  1  #Acc ← Acc*r1 /n^2
+           store 2  #r2 ← Acc     /n^2
+           mult  1  #Acc ← Acc*r1 /n^3
+           mult  =2 #Acc ← Acc*2  /2*n^3
+           store 3  #r3 ← Acc     /2*n^3
+           load  2  #Acc ← r2     /n^2
+           mult  =3 #Acc ← Acc*3  /3*n^2
+           add   3  #Acc ← Acc+r3 /2*n^3+3n^2
+           sub   1  #Acc ← Acc-r1 /2*n^3+3n^2-n
+           write 0  #WY ← Acc

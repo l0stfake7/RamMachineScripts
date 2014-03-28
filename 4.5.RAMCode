@@ -1,0 +1,46 @@
+       read  1     #1 n
+       load  =0
+       store 5
+       load  =10   #2 licznik r dla a
+       store 2     #3 pozycja startowego r dla b
+ciaga: read  ^2    #4 licznik r dla b
+       load  2     #5 liczenie par
+       add   =1
+       store 2
+       sub   =10
+       sub   1
+       jgtz  czytb
+       jump  ciaga
+czytb: load  2
+       store 3
+ciagb: read  ^2
+       load  2
+       add   =1
+       store 2
+       sub   3
+       sub   1
+       jgtz  dalej
+       jump  ciagb
+dalej: load  =10
+       store 2
+       load  3
+       store 4
+start: load  ^2
+       sub   ^4
+       jzero licz
+tutaj: load  2
+       add   =1
+       store 2
+       load  4
+       add   =1
+       store 4
+       sub   3
+       sub   1
+       jgtz  gogo
+       jump  start
+gogo:  write 5
+       halt  
+licz:  load  5
+       add   =1
+       store 5
+       jump  tutaj

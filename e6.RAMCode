@@ -1,0 +1,19 @@
+Przykład4b:              #Słowo wspak
+            load  =10
+            store 2      #j ← 10
+petla:      read  0      #c ← WE
+            jzero dal    #c=0?
+            store ^2     #r(j) ← c
+            load  2
+            add   =1
+            store 2      #j ← j+1
+            jump  petla
+dal:        load  2
+            sub   =10
+            jzero koniec #j=10?
+            load  2
+            sub   =1
+            store 2      #j ← j-1
+            write ^2     #WY ← r(j)
+            jump  dal
+koniec:     halt  

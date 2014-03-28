@@ -1,0 +1,44 @@
+                          load  =10
+                          store 2                        #2 licznik
+                          load  =0
+                          store 7
+tojuzostatniezadanie:     read  0                        #3 ostatni wyraz ciagu
+                          jzero bo9robilemwczesniej      #4 ai
+                          store ^2                       #5 ai+1
+                          load  2                        #6 ai+2
+                          add   =1                       #7 suma
+                          store 2
+                          jump  tojuzostatniezadanie
+bo9robilemwczesniej:      load  2
+                          sub   =1
+                          store 3
+                          load  =10
+                          store 2
+juzchybaniedalekodokonca: load  ^2
+                          store 4
+                          load  2
+                          add   =1
+                          store 2
+                          load  ^2
+                          store 5
+                          load  2
+                          add   =1
+                          store 2
+                          load  ^2
+                          store 6
+                          load  4
+                          add   5
+                          sub   6
+                          jzero corazblizejswieta
+takbardzokonczyc:         load  2
+                          sub   3
+                          jzero jejkoniec
+                          load  2
+                          sub   =1
+                          store 2
+                          jump  juzchybaniedalekodokonca
+corazblizejswieta:        load  7
+                          add   =1
+                          store 7
+                          jump  takbardzokonczyc
+jejkoniec:                write 7

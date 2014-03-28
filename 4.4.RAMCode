@@ -1,0 +1,38 @@
+         load  =10
+         store 2       #2 licznik rejestrów zapisu
+czyt:    read  0       #3 nr rejestru ostatniego elementu ciągu
+         jzero konczyt #4 drugi licznik rejestrów
+         store ^2
+         load  2
+         add   =1
+         store 2
+         jump  czyt
+konczyt: load  2
+         sub   =1
+         store 3
+         load  =10
+         store 2
+         add   =1
+         store 4
+xxx:     load  ^2
+         sub   ^4
+         add   =1
+         jzero tak
+         load  4
+         add   =1
+         store 4
+         sub   3
+         jgtz  dalej
+         jump  xxx
+dalej:   load  2
+         add   =1
+         store 2
+         load  =10
+         store 4
+         load  2
+         sub   3
+         jgtz  nie
+         jump  xxx
+nie:     write =0
+         halt  
+tak:     write =1

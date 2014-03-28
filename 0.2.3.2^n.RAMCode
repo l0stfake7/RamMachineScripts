@@ -1,0 +1,21 @@
+          read  3        #potega
+          load  3
+          jgtz  nextstep #n!=0
+          jzero nextstep #n>0
+          load  3
+          store 2        #wynik
+          jump  koniec   #n<0
+nextstep: load  =1
+          store 2        #wynik
+          store 4
+petla:    load  4
+          sub   3
+          jgtz  koniec
+          load  2
+          mult  =2
+          store 2
+          load  4
+          add   =1
+          store 4
+          jump  petla
+koniec:   write 2

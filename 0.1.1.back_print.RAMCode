@@ -1,0 +1,20 @@
+      load  =1
+      store 1
+loop: read  ^1
+      jzero next
+      load  1
+      sub   =6
+      jzero next
+      jump  add
+add:  load  1
+      add   =1
+      store 1
+      jump  loop
+next: write ^1
+      load  1
+      jgtz  sub
+sub:  load  1
+      sub   =1
+      store 1
+      jump  next
+end:  halt  

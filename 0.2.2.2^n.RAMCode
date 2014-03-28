@@ -1,0 +1,18 @@
+          read  1        #n - potega
+          read  2        #l - akt. st. potegowania
+          read  3        #f - wynik
+          load  1
+          jgtz  odnosnik
+          jzero odnosnik
+          jump  koniec
+odnosnik: load  =1
+          store 1        #l=1
+          load  =1
+          store 3        #f=1
+          load  2
+          sub   1        #jesli l-n>0 to l>n
+          jgtz  petla
+petla: 
+
+koniec:   write 3
+          halt  
