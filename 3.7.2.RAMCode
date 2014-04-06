@@ -1,0 +1,70 @@
+         read  1       #n
+         load  1       #n
+         jzero pisz0   #0
+         sub   =1      #-1
+         jzero liczz1  #n-1=0 ? liczz1:...
+         load  1
+         sub   =2
+         jzero inne
+         read  2       #x
+         load  1       #n
+         store 3       #x^n=1
+         store 4       #i=1
+         load  =0
+         store 5
+potega:  load  2
+         mult  3
+         store 3
+         load  4
+         add   =1
+         store 4
+         sub   1
+         jgtz  next
+         jump  potega
+next:    load  1
+         add   =1
+         store 4
+wczytuj: read  6
+         load  6
+         mult  3
+         add   5
+         store 5
+         load  2
+         jzero pisz0
+         load  3
+         div   2
+         store 3
+         load  4
+         sub   =1
+         store 4
+         jzero wynik
+         jump  wczytuj
+wynik:   write 5
+         halt  
+pisz0:   write =0
+         halt  
+liczz1:  read  2       #x
+         load  2
+         jzero pisz0
+         read  3       #an
+         load  3
+         add   =1
+         write 0
+         halt  
+inne:    read  2       #x
+         load  2
+         jzero inne2
+         read  3
+         read  4
+         read  5
+         load  3
+         add   4
+         store 10
+         load  10
+         add   5
+         write 0
+         halt  
+inne2:   read  3       #an
+         read  4       #an-1
+         read  5
+         write 5       #a0

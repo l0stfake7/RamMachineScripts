@@ -1,0 +1,47 @@
+begin: 
+                  read  1                #n
+                  load  1                #n
+                  jzero write_0          #n=0?
+                  jgtz  no_change_symbol #n>0?
+                  jump  change_symbol    #n<0?
+change_symbol: 
+                  load  1                #n
+                  mult  =-1              #*(-)
+                  store 2                #a
+                  jump  step_1
+no_change_symbol: 
+                  load  1                #n
+                  store 2                #a=n
+step_1: 
+                  load  =1               #=1
+                  store 3                #x
+step_2:                                  #szukam potegi
+                  load  3                #x
+                  mult  3                #*x
+                  mult  3                #*x
+                  mult  3                #*x
+                  mult  3                #*x
+                  sub   2                #-a
+                  jgtz  step_3           #x^5-a(n)>0?
+                  load  3                #x
+                  add   =1               #+1
+                  store 3                #x
+                  jump  step_2
+step_3: 
+                  load  3                #x
+                  sub   =1               #-1
+                  store 4                #y
+                  load  1                #n
+                  jgtz  write_result     #n>0?
+                  load  4                #y
+                  mult  =-1              #*(-)
+                  store 4                #y
+write_result: 
+                  load  4                #y
+                  store 5                #w
+                  jump  end
+write_0: 
+                  load  =0               #=0
+                  store 5                #w
+end: 
+                  write 5                #w

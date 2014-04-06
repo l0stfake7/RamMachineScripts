@@ -1,0 +1,44 @@
+         read  0       #n
+         store 1
+         sub   =1
+         jzero inne    #n=1
+         read  0       #x
+         jzero blad    #x=
+         store 2
+         load  =1      #1
+         store 3       #x^n=1
+         store 4       #i=1
+         load  =0      #0
+         store 5       #w=1
+potega:  load  2       #x
+         mult  3       #*n
+         store 3       #x*n
+         load  4       #i
+         add   =1      #+1
+         store 4       #i
+         sub   1       #-1
+         jgtz  next    #i-1>0 ? next : petla
+         jump  potega
+next:    load  1       #n
+         add   =1      #+1
+         store 4       #i=n+1
+wczytuj: read  6       #an
+         load  6       #an
+         mult  3       #*x^n
+         add   5       #+w
+         store 5       #w+=an*x^n
+         load  3       #x^n
+         div   2       #/x
+         store 3       #(x^n)/x
+         load  4       #i
+         sub   =1      #+1
+         store 4       #i
+         jzero wynik   #i=0 ? wynik: wczytuj
+         jump  wczytuj
+wynik:   write 5       #w
+         halt  
+blad:    load  =0
+         write 0
+         halt  
+inne:    load  =2
+         write 0

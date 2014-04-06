@@ -1,29 +1,30 @@
         read  1      #n
-        read  0
+        load  1      #n
+        jzero blad   #n=0 ? blad : ...
+        read  0      #a1
         store 5      #a1
-        store 3      #min
-        store 4      #max
-        load  =2
+        store 3      #min=a1
+        store 4      #max=a1
+        load  =2     #2
         store 2      #i
-petla: 
-        read  5
-        load  5
-        sub   3
-        jgtz  min
-        load  5
-        store 3
-min: 
-        load  4
-        sub   5
-        jgtz  max
-        load  5
-        store 4
-max: 
-        load  2
-        add   =1
-        store 2
-        sub   1
-        jgtz  wypisz
+petla:  read  5      #an
+        load  5      #an
+        sub   3      #-min
+        jgtz  min    #an-min>0 ? min : ...
+        load  5      #an
+        store 3      #min=an
+min:    load  4      #max
+        sub   5      #-an
+        jgtz  max    #max-an>0 ? max: ...
+        load  5      #an
+        store 4      #max=an
+max:    load  2      #i
+        add   =1     #+1
+        store 2      #i
+        sub   1      #-1
+        jgtz  wypisz #i-n>0 ? wypisz : petla
         jump  petla
-wypisz: write 3
-        write 4
+wypisz: write 3      #min
+        write 4      #max
+blad:   write =666   #666
+        write =666   #666

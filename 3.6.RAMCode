@@ -1,4 +1,6 @@
                  read  1               #n
+                 load  1
+                 jzero blad
                  load  =0              #0
                  store 2               #dodatnie
                  load  =1              #1
@@ -29,3 +31,5 @@ sprawdz:         load  4               #i
                  jump  wczytaj
 wypisz:          write 2               #suma dodatnich
                  write 3               #iloczyn parzystych
+                 halt  
+blad:            wtire =666

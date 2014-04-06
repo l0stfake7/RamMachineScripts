@@ -1,0 +1,103 @@
+begin: 
+                  read  1                #n
+                  load  1                #n
+                  jzero n_zero           #n=0?
+                  sub   =1               #-1
+                  jzero n_one            #n=1?
+                  jgtz  n_above_zero     #n>0?
+n_zero: 
+                  read  0                #0
+                  read  0
+                  store 3                #w
+                  jump  end
+n_one: 
+                  read  2                #x
+                  load  2
+                  jzero read_a0_1        #x=0
+                  jgtz  read_a1x_to_a0   #x>0
+n_above_zero: 
+                  read  2                #x
+                  load  2                #x
+                  jzero read_a0_1        #x=0?
+                  sub   =1               #-1
+                  jzero read_anx_to_a0_1 #x=1?
+                  jump  calculate        #x>0
+read_a0_1: 
+                  read  0                #an
+read_a0_2:        read  0                #an
+                  store 3                #w=a0
+                  load  1                #n
+                  sub   =1               #-1
+                  store 1                #n
+                  jzero end
+                  jump  read_a0_2
+read_a1x_to_a0: 
+                  read  3                #a1
+                  read  4                #a0
+                  load  3                #a1
+                  mult  2                #*x
+                  store 3                #a1*x
+                  add   4                #+a0
+                  store 3                #w=a1*x+a0
+                  jump  end
+read_anx_to_a0_1:                        #n>0 && x=1
+                  load  =0               #0
+                  store 3                #w
+read_anx_to_a0_2: 
+                  read  0                #an
+                  mult  2                #x
+                  add   3                #w
+                  store 3                #w
+                  load  1                #n
+                  sub   =1               #+1
+                  store 1                #n
+                  jzero add_an_to_w      #n=1?
+                  jump  read_anx_to_a0_2
+add_an_to_w: 
+                  read  0                #a0
+                  add   3                #w
+                  store 3                #w
+                  jump  end
+calculate: 
+                  load  =0               #0
+                  store 3                #w
+                  load  1                #n
+                  store 4                #n
+                  load  2                #x
+                  store 5                #x
+                  jump  step_1           #x^n
+step_1: 
+                  load  4                #n
+                  sub   =1               #-1
+                  store 4                #n
+                  jzero step_2
+                  load  5                #x
+                  mult  2                #*x
+                  store 5                #x
+                  jump  step_1
+step_2: 
+                  load  1                #n
+                  add   =1               #+1
+                  store 1                #n
+step_3: 
+                  read  6                #an
+                  load  6                #an
+                  mult  5                #*x^n
+                  add   3                #+w
+                  store 3                #w
+                  load  5                #x^n
+                  div   2                #/x
+                  store 5                #x^n
+                  load  1                #n
+                  sub   =1               #-1
+                  store 1                #n
+                  sub   =1               #-1
+                  jzero step_last        #n=1?
+                  jump  step_3
+step_last: 
+                  read  0                #an
+                  add   3                #+w
+                  store 3                #w
+end: 
+                  write 3                #w
+                  halt  

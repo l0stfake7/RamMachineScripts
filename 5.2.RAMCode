@@ -1,0 +1,58 @@
+           read  1         #n
+           load  =3
+           store 2         #i=0
+wczytaj: 
+           load  2         #i=n ? {
+           sub   =3
+           sub   1
+           jzero dalej1    #}
+           load  2         #i++ {
+           add   =1
+           store 2         #}
+           read  ^2
+           jump  wczytaj
+dalej1: 
+           load  =3
+           store 2         #i=0
+petla1: 
+           load  2         #i=n ? {
+           sub   =3
+           sub   1
+           jzero dalej2    #}
+           load  2         #i++ {
+           add   =1
+           store 2         #}
+           load  ^2
+           div   =2
+           mult  =2
+           store 3
+           load  ^2
+           sub   3
+           jzero wyswietl1
+           jump  petla1
+wyswietl1: 
+           write ^2
+           jump  petla1
+dalej2: 
+           load  =3
+           store 2         #i=0
+petla2: 
+           load  2         #i=n ? {
+           sub   =3
+           sub   1
+           jzero koniec    #}
+           load  2         #i++ {
+           add   =1
+           store 2         #}
+           load  ^2
+           div   =2
+           mult  =2
+           store 3
+           load  ^2
+           sub   3
+           jzero petla2
+           jump  wyswietl2
+wyswietl2: 
+           write ^2
+           jump  petla2
+koniec: 

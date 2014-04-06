@@ -10,5 +10,8 @@ loop:    read  0       #Ax - wczytana liczba
          store 1       #D
          jump  loop
 srednia: load  2       #S
+         jzero blad
          div   1       #D
+         jzero blad
          write 0
+blad:    write =666

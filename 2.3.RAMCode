@@ -1,6 +1,7 @@
          read  0        #A1
          store 2        #Min1
          store 3        #Min2
+         store 5        #Min3
          load  =4       #4 - do wczytania
          store 4        #n
 loop:    load  4        #n

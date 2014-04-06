@@ -1,0 +1,70 @@
+begin: 
+          read  1       #n
+          load  1       #n
+          jzero error   #n=0?
+          jgtz  init
+          jump  error
+init:     load  =3      #=3
+          store 2       #i=3 i pozycja startowa wczytywania
+read:                   #wczytywanie
+          load  2       #i
+          sub   =3      #-3
+          sub   1       #-n
+          jzero step_1  #i-3-n=0?
+          load  2       #i
+          add   =1      #+1
+          store 2       #i
+          read  ^2      #^i
+          jump  read
+step_1: 
+          load  =3      #3
+          store 2       #i
+loop_1:                 #czy parzyste
+          load  2       #i
+          sub   =3      #-3
+          sub   1       #-n
+          jzero step_2  #i-3-n=0?
+          load  2       #i
+          add   =1      #+1
+          store 2       #i+=1
+          load  ^2      #^i
+          div   =2      #/2
+          mult  =2      #*2
+          store 3       #x=^i/i*i
+          load  ^2      #^i
+          sub   3       #-x
+          jzero print_1 #^i-x=0?
+          jump  loop_1
+print_1: 
+          write ^2      #^i
+          jump  loop_1
+step_2: 
+          load  =3
+          store 2
+loop_2:                 #pozostałe
+          load  2       #i
+          sub   =3      #-3
+          sub   1       #-n
+          jzero end     #i-3-n=0?
+          load  2       #i
+          add   =1      #+1
+          store 2       #i+=1
+          load  ^2      #^i
+          div   =2      #/2
+          mult  =2      #*2
+          store 3       #x=^i/i*i
+          load  ^2      #^i
+          sub   3       #-x
+          jzero loop_2  #^i-x=0?
+          jump  print_2
+print_2: 
+          write ^2      #^i
+          jump  loop_2
+print_a1: 
+          read  3       #a1
+          load  3       #a1
+          write 3       #a1
+          jump  end
+error: 
+          write =666    #666
+end: 

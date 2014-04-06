@@ -1,0 +1,47 @@
+      load  =3   #od trójki zapisujemy wczytane
+      store 1    #n
+read: 
+      read  0    #bin
+      store 2    #-2
+      sub   =2   #bin-2=0?
+      jzero next
+      load  1    #n
+      add   =1   #+1
+      store 1    #n+=1
+      load  2    #bin
+      store ^1   #^n
+      jump  read
+next: 
+      load  =0   #0
+      store 2    #bin
+      load  =1   #1
+      store 3    #potega
+loop:            #sprawdzam czy zero/jeden
+      load  1    #n
+      sub   =3   #-3
+      jzero end
+      load  ^1   #^n
+      mult  3    #*potega
+      add   2    #+bin
+      store 2    #bin+=^n*potega
+      load  3    #potega
+      mult  =2   #*2
+      store 3    #potega*=2
+      load  1    #n
+      sub   =1   #-1
+      store 1    #n-=1
+      jump  loop
+end:             #czy podzielna
+      load  2    #bin
+      div   =3   #/3
+      mult  =3   #*3
+      store 3    #potega=bin/3*3
+      load  2    #bin
+      sub   3    #-potega
+      jzero tak  #bin-potega=0?
+      jump  nie
+nie: 
+      write =0   #0
+      halt  
+tak: 
+      write =1   #1

@@ -1,35 +1,35 @@
-          load  =0        #0
-          store 1         #liczba zer
-          store 2         #liczba jedynek
-loop:     read  0         #Ax - wczytana liczba
-          store 3         #Ax
-          sub   =2        #-2
-          jzero sprawdz   #Ax-2=0? next : ...
-          load  3         #Ax
-          jgtz  add_one
-          jzero add_null
-          jump  loop
-add_one:  load  2
-          add   =1
-          store 2
-          jump  loop
-add_null: load  1
-          add   =1
-          store 1
-          jump  loop
-sprawdz:  load  1
-          div   =2
-          mult  =2
-          sub   1
-          jgtz  error     #liczba zer nie jest parzysta
-          load  2
-          div   =2
-          mult  =2
-          sub   2
-          jzero error     #liczba jedynek jest parzysta
-          load  =1
-          store 1
-          jump  print
-error:    load  =66666666
-          store 1
-print:    write 1
+             load  =0          #0
+             store 1           #liczba zer
+             store 2           #liczba jedynek
+loop:        read  0           #Ax - wczytana liczba
+             store 3           #Ax
+             sub   =2          #-2
+             jzero sprawdz     #Ax-2=0? next : ...
+             load  3           #Ax
+             jgtz  dodaj_jeden
+             jzero dodaj_zero
+             jump  loop
+dodaj_jeden: load  2
+             add   =1
+             store 2
+             jump  loop
+dodaj_zero:  load  1
+             add   =1
+             store 1
+             jump  loop
+sprawdz:     load  1
+             div   =2
+             mult  =2
+             sub   1
+             jgtz  error       #liczba zer nie jest parzysta
+             load  2
+             div   =2
+             mult  =2
+             sub   2
+             jzero error       #liczba jedynek jest parzysta
+             load  =1
+             store 1
+             jump  print
+error:       load  =66666666
+             store 1
+print:       write 1

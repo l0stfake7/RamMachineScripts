@@ -1,0 +1,46 @@
+      load  =3   #od trójki zapisujemy wczytane
+      store 1    #n
+read: 
+      read  0    #a
+      store 2    #-2
+      sub   =2   #a-2=0?
+      jzero next
+      load  1    #n
+      add   =1   #+1
+      store 1    #n+=1
+      load  2    #a
+      store ^1   #^n
+      jump  read
+next: 
+      load  =0   #0
+      store 2    #a
+      load  =1   #1
+      store 3    #b
+loop: 
+      load  1    #n
+      sub   =3   #-3
+      jzero end
+      load  ^1   #^n
+      mult  3    #*b
+      add   2    #+a
+      store 2    #a=^n*b+a
+      load  3    #b
+      mult  =2   #*2
+      store 3    #b*=2
+      load  1    #n
+      sub   =1   #-1
+      store 1    #n-=1
+      jump  loop
+end: 
+      load  2    #a
+      div   =3   #/3
+      mult  =3   #*3
+      store 3    #b=a/3*3
+      load  2    #a
+      sub   3    #-b
+      jzero tak  #a-b=0?
+      jump  nie
+nie: 
+      write =0   #0
+tak: 
+      write =1   #1
